@@ -20,7 +20,7 @@ Positive indices return the values based on selected positions and what order th
 Negative indices excludes in a selected position. This is in contrast to P04 that selects positions instead. Hence, the atomic vector is [4,9], integer, length 2, and dim none.
 
 ## P06
-is.na() identifies arguments that have the NULL type. The other condition is x being greater than 10. Since we have an OR/| boolean we check each argument if they pass either condition. It then returns an atomic vector with arguments passing the conditions holding TRUE. [NA,12], with length 2, and dim none.
+is.na() identifies arguments that are NA (missing values). The other condition is x being greater than 10. Since we have an OR/| boolean we check each argument if they pass either condition. It then returns an atomic vector with arguments passing the conditions holding TRUE. [NA,12], with length 2, and dim none.
 
 ## P07
 Replace this line with the rule that decides this case.
