@@ -37,10 +37,10 @@ A data frame is a list of equal-length columns, so typeof reports list, not data
 Recycling a vector into a matrix rule, a matrix is stored by column, so R recycles the shorter vector down that order and the result keeps the matrix's dimensions. For matrix(1:6, nrow = 2L), the stored order is 1,2,3,4,5,6, so c(10L, 20L) repeats as 10,20,10,20,10,20 and gives 11,22,13,24,15,26 (added). The value is matrix[2x3](11,22,13,24,15,26), type integer, with length six and dimensions 2x3.
 
 ## P11
-Missing values arithmetic with a missing value gives a missing value. The NA_real_ in c(8, NA_real_, 10) affects the whole computation, so the result is NA. The value is NA, type double (mean() returns a double), with length one and no dimensions.
+Missing values arithmetic with a missing value gives a missing value. The NA_real_ in c(8, NA_real_, 10) affects the whole computation, so the result is NA. The value is [NA], type double (mean() returns a double), with length one and no dimensions.
 
 ## P12
-Missing values with na.rm = TRUE removes missing values before mean() computes, so the NA no longer affects the result. The NA_real_ is dropped, leaving 8 and 10, and the mean is (8 + 10) / 2 = 9. The value is 9, type double (mean() returns double), with length one and no dimensions.
+Missing values with na.rm = TRUE removes missing values before mean() computes, so the NA no longer affects the result. The NA_real_ is dropped, leaving 8 and 10, and the mean is (8 + 10) / 2 = 9. The value is [9], type double (mean() returns double), with length one and no dimensions.
 
 ## P13
 Atomic vectors and their one shared type means that an atomic vector stores one basic type, so when subassignment puts a double into an integer vector, R widens the whole vector to double so the new value fits. x starts as the integer vector 1:3 ([1,2,3]), and assigning 2.5 to position 2 makes all three elements doubles. The value is [1,2.5,3], with length three and no dimensions.
