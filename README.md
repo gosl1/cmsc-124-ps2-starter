@@ -4,6 +4,13 @@
 This repository contains the R prediction corpus and the four functions for
 Problem Set 2. The assignment manual defines the work and the submission rules.
 
+## Pair
+
+Replace the two entries below. An assigned trio adds one entry.
+
+- Erine Lourdes L. Medalla (`@e-rine`)
+- Marc Raven A. Sian (`@gosl1`)
+
 ## Layout
 
 ```text
