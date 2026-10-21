@@ -2,5 +2,5 @@
 
 **Members:**
 
-- Sian, MRA — [@gosl1]https://github.com/gosl1
-- Medalla, E — [@e-rine]https://github.com/e-rine
+Erine Lourdes L. Medalla (@e-rine)
+Marc Raven A. Sian (@gosl1)
