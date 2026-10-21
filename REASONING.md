@@ -13,7 +13,7 @@ c() combines the arguments into one atomic vector. Based on coercion logic, the 
 ## P02
 The highest type in the coercion ladder is character which is evident in index 2 = "2". Hence each element becomes a character ["1L","2","TRUE"] with length 3 and dim none.
 
-After comparing, it was supposed to be 1, not 1L.
+After comparing, it was supposed to be 1, not 1L. Because L is a literal suffix and not part of the value.
 
 ## P03
 Because the right operand is shorter than the left, we use recycling and repeat the values until it reaches the end of the left operand. Each element is an integer so the atomic vector type will be integer [11,22,31,42]. Length being 4, and dim as none.
@@ -33,7 +33,7 @@ is then factor["low","high","low];levels=["low","high"]. With type integer, leng
 After comparing, there should've been no quotation. factor[low,high,low];levels=[low,high]
 
 ## P08
-value — item 1 is an integer vector, and item 2 is a character vector.  list{[scores[3,5],label["A"]]}
+value — item 1 is an integer vector, and item 2 is a character vector.  list{[scores=[3,5],label=["A"]]}
 
 type — the outer container is a list. The inner vector being integer doesn't change the outer type.
 
@@ -49,7 +49,7 @@ A data frame is a list of columns so typeof() reports list, and length() counts 
 
 
 ## P10
-A matrix is an atomic vector plus a dim attribute, stored column-wise. The underlying vector is [1,2,3,4,5,6]. Both operands are integer, so no widening. matrix(1:6, nrow = 2L) in this case has 2 rows and 2 columns. Value: matrix[2x3](1,2,3,4,5,6), type: integer, length: 6, dim: 2x3.
+A matrix is an atomic vector plus a dim attribute, stored column-wise. The underlying vector is [1,2,3,4,5,6]. Both operands are integer, so no widening. matrix(1:6, nrow = 2L) in this case has 2 rows and 2 columns. Value: matrix[2x3](11,22,13,24,15,26), type: integer, length: 6, dim: 2x3.
 
 
 ## P11
@@ -71,6 +71,7 @@ After comparing, the type should've been a double.
 `scores` is an integer vector. `ifelse` evaluates the `is.na` mask and the `scores * 2` branch, then picks per position: where the mask is `TRUE` take `0`, else take the doubled value, giving `14,0,24,8`. The cap mask `adjusted > 15` sets position 3 to `15`, giving `14,0,15,8`. Value `[14,0,15,8]`, type `integer`, length `4`, dim `none`.
 
 After comparing, I realized NA_real still harbors the double type even if we change its value.
+So scores is a double vector instead.
 
 ## P15
 An array is an atomic vector plus a multi-dimensional `dim` attribute. `1:8` is an integer sequence, so the storage type is integer. `length()` counts total elements, and the `dim` attribute is the three dimensions. Values are written in storage order. Value `array[2x2x2](1,2,3,4,5,6,7,8)`, type `integer`, length `8`, dim `2x2x2`.
